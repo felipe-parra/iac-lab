@@ -3,3 +3,7 @@
 ./iac-lab1/.venv
 ./iac-lab2/.venv
 ./iac-lab3/.venv
+
+./iac-lab1/__pycache__
+./iac-lab2/__pycache__
+./iac-lab3/__pycache__
