@@ -1,3 +1,5 @@
 # enviroment variables
 .env
+./iac-lab1/.venv
 ./iac-lab2/.venv
+./iac-lab3/.venv
