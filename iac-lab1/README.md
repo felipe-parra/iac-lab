@@ -16,25 +16,37 @@ sudo installer -pkg AWSCLIV2.pkg -target /
 brew install pulumi/tap/pulumi
 ```
 
-### Step 1 - Create new pulumi project
+### Step 1 - Create new pulumi project:
 
 ```
 pulumi new python -y
 ```
 
-### Step 2 - Install pulumi aws package
+### Step 2 - Create virtual enviroment:
 
 ```
-pip3 install pulumi-aws
+python3 -m venv venv
 ```
 
-### Step 3 - Configure your region
+### Step 3 - Activate virtual enviroment:
+
+```
+source venv/bin/activate
+```
+
+### Step 4 - Install packages:
+
+```
+pip3 install -r requirements.txt
+```
+
+### Step 5 - Configure your region
 
 ```
 pulumi config set aws:region us-east-1
 ```
 
-### Step 4 - Create your files (or add your directory) and directory (www)
+### Step 6 - Create your files (or add your directory) and directory (www)
 
 ```
 mkdir www
@@ -42,7 +54,7 @@ echo "<!DOCTYPE html><html><body>Example Site - Index - IaC Lab</body></html>" >
 echo "<!DOCTYPE html><html><body>Example Site - About - IaC Lab</body></html>" > www/about.html
 ```
 
-### Step 5 - Setup project on _`__main__.py`_ file:
+### Step 7 - Setup project on _`__main__.py`_ file:
 
 ```
 """A Python Pulumi program"""
@@ -77,31 +89,31 @@ pulumi.export("bucket_endpoint", pulumi.Output.concat(
 pulumi.export("example_export", "my example export case")
 ```
 
-### Step 6 - Set site_dir where site it is:
+### Step 8 - Set site_dir where site it is:
 
 ```
 pulumi config set iac-lab1:site_dir www
 ```
 
-### Step 7 - Deploy to pulumi & aws (Dev):
+### Step 9 - Deploy to pulumi & aws (Dev):
 
 ```
 pulumi up
 ```
 
-### Step 8 - Create new stack, (Production):
+### Step 10 - Create new stack, (Production):
 
 ```
 pulumi stack init prod
 ```
 
-### Step 8 - Set region to new stack(Production):
+### Step 11 - Set region to new stack(Production):
 
 ```
 pulumi config set aws:region eu-west-1
 ```
 
-### Step 9 - Set new site directory (wwwprod) (Production):
+### Step 12 - Set new site directory (wwwprod) (Production):
 
 ```
 pulumi config set iac-lab1:site_dir wwwprod
